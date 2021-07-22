@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-deployment
+  labels:
+    run: prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: prod
+  template:
+    metadata:
+      labels:
+        run: prod
+    spec:
+      containers:
+         - image: myazuredevopsprac.azurecr.io/myjava:25
+           name: java-conatiner

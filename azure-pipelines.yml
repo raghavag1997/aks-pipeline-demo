@@ -41,7 +41,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: 'target'
+    SourceFolder: '*'
     Contents: '**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     CleanTargetFolder: true
@@ -51,4 +51,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: 'myartificats'
   displayName: 'Publishing Artificats'

@@ -35,6 +35,6 @@ steps:
     addBaseImageData: false
   displayName: 'Bulding and Publishing Docker Image to ACR'
 
-- scipt: |
+- script: |
     sudo docker images
   displayName: 'Viewing Docker Images'

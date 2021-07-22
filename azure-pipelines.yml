@@ -4,6 +4,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+   registryName: 'myjava'
+
 steps:
 - task: Maven@3
   inputs:
@@ -21,3 +24,17 @@ steps:
     cd target
     ls
   displayName: 'Viewing target folder'
+
+- task: Docker@2
+  inputs:
+    containerRegistry: 'My ACR Connection'
+    repository: $(registryName)
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    addPipelineData: false
+    addBaseImageData: false
+  displayName: 'Bulding and Publishing Docker Image to ACR'
+
+- scipt: |
+    sudo docker images
+  displayName: 'Viewing Docker Images'

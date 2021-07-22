@@ -38,3 +38,8 @@ steps:
 - script: |
     sudo docker images
   displayName: 'Viewing Docker Images'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Publishing Artificats'

@@ -53,3 +53,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'myartificats'
   displayName: 'Publishing Artificats'
+

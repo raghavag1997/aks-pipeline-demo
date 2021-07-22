@@ -16,3 +16,8 @@ steps:
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
   displayName: 'Bulding the code'
+
+- script: |
+    cd target
+    ls
+  displayName: 'Viewing target folder'

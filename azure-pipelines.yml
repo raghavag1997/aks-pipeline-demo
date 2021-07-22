@@ -39,6 +39,15 @@ steps:
     sudo docker images
   displayName: 'Viewing Docker Images'
 
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'target'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
+  displayName: 'Copying Contents'
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
